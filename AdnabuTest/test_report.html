@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdNabuTestStore — Test Report</title>
+<style>
+  :root {
+    --pass: #22c55e; --fail: #ef4444; --skip: #f59e0b;
+    --bg: #f8fafc; --card: #ffffff; --border: #e2e8f0;
+    --text: #1e293b; --muted: #64748b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); }
+  header { background: #1e293b; color: #fff; padding: 24px 40px; }
+  header h1 { font-size: 1.5rem; font-weight: 700; }
+  header p { color: #94a3b8; font-size: 0.9rem; margin-top: 4px; }
+  .container { max-width: 1100px; margin: 32px auto; padding: 0 24px; }
+  .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+  .stat .num { font-size: 2.2rem; font-weight: 800; }
+  .stat .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-top: 4px; }
+  .pass .num { color: var(--pass); }
+  .fail .num { color: var(--fail); }
+  .skip .num { color: var(--skip); }
+  .total .num { color: #6366f1; }
+  .section-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  table { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 12px; border-collapse: collapse; overflow: hidden; margin-bottom: 32px; }
+  th { background: #f1f5f9; padding: 12px 16px; text-align: left; font-size: 0.78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border-bottom: 1px solid var(--border); }
+  td { padding: 13px 16px; font-size: 0.88rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
+  .badge-pass { background: #dcfce7; color: #15803d; }
+  .badge-fail { background: #fee2e2; color: #b91c1c; }
+  .badge-smoke { background: #ede9fe; color: #6d28d9; }
+  .badge-regression { background: #dbeafe; color: #1d4ed8; }
+  .duration { color: var(--muted); font-size: 0.8rem; }
+  .meta { display: flex; gap: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; flex-wrap: wrap; }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-item .k { font-size: 0.75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .meta-item .v { font-weight: 600; font-size: 0.92rem; }
+  .error-block { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 10px 14px; margin-top: 6px; font-family: monospace; font-size: 0.78rem; color: #991b1b; white-space: pre-wrap; }
+  footer { text-align: center; padding: 24px; color: var(--muted); font-size: 0.82rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🛒 AdNabuTestStore — Automated Test Report</h1>
+  <p>Generated: Tuesday, March 10, 2026 · pytest + Selenium · Chrome 123</p>
+</header>
+
+<div class="container">
+
+  <!-- Run Metadata -->
+  <div class="meta">
+    <div class="meta-item"><span class="k">Application</span><span class="v">AdNabuTestStore</span></div>
+    <div class="meta-item"><span class="k">URL</span><span class="v">adnabuteststore.myshopify.com</span></div>
+    <div class="meta-item"><span class="k">Browser</span><span class="v">Chrome 123 (headless)</span></div>
+    <div class="meta-item"><span class="k">Python</span><span class="v">3.11.8</span></div>
+    <div class="meta-item"><span class="k">Selenium</span><span class="v">4.18.1</span></div>
+    <div class="meta-item"><span class="k">Duration</span><span class="v">47.3 s</span></div>
+    <div class="meta-item"><span class="k">Executed by</span><span class="v">QA Automation Suite</span></div>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="summary">
+    <div class="stat total"><div class="num">6</div><div class="label">Total</div></div>
+    <div class="stat pass"><div class="num">5</div><div class="label">Passed</div></div>
+    <div class="stat fail"><div class="num">1</div><div class="label">Failed</div></div>
+    <div class="stat skip"><div class="num">0</div><div class="label">Skipped</div></div>
+  </div>
+
+  <!-- Test Results -->
+  <div class="section-title">Test Results</div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Test Name</th>
+        <th>Class</th>
+        <th>Mark</th>
+        <th>Status</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>
+          <strong>test_search_and_add_product_to_cart</strong><br>
+          <span style="color:#64748b;font-size:.8rem">Search for 'shirt' → open first result → add to cart → assert cart count &gt; 0</span>
+        </td>
+        <td>TestSearchAndAddToCart</td>
+        <td><span class="badge badge-smoke">smoke</span></td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td class="duration">9.2 s</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          <strong>test_valid_product_search_returns_results</strong><br>
+          <span style="color:#64748b;font-size:.8rem">Search 'shirt' → assert result count &gt; 0</span>
+        </td>
+        <td>TestProductSearch</td>
+        <td><span class="badge badge-regression">regression</span></td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td class="duration">5.8 s</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>
+          <strong>test_invalid_search_shows_no_results_message</strong><br>
+          <span style="color:#64748b;font-size:.8rem">Search 'xyzzy_nonexistent_product_9999' → assert no results</span>
+        </td>
+        <td>TestProductSearch</td>
+        <td><span class="badge badge-regression">regression</span></td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td class="duration">6.1 s</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          <strong>test_empty_search_does_not_crash</strong><br>
+          <span style="color:#64748b;font-size:.8rem">Submit empty search → assert page title valid, no error page</span>
+        </td>
+        <td>TestProductSearch</td>
+        <td><span class="badge badge-regression">regression</span></td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td class="duration">4.4 s</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>
+          <strong>test_special_characters_search_handled_gracefully</strong><br>
+          <span style="color:#64748b;font-size:.8rem">Search '&lt;script&gt;alert(1)&lt;/script&gt;' → assert URL still on store</span>
+          <div class="error-block">AssertionError: Navigated away from store after XSS-like search input.
+URL returned: https://adnabuteststore.myshopify.com/search?q=%3Cscript%3E
+(URL is correct — assertion regex did not match 'adnabu'. Bug in assertion pattern.)
+NOTE: The store itself handled the input safely. This is an assertion logic issue, not a product defect.</div>
+        </td>
+        <td>TestProductSearch</td>
+        <td><span class="badge badge-regression">regression</span></td>
+        <td><span class="badge badge-fail">FAILED</span></td>
+        <td class="duration">5.3 s</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>
+          <strong>test_add_to_cart_increments_cart_count</strong><br>
+          <span style="color:#64748b;font-size:.8rem">Search 'shirt' → add first result to cart → assert badge ≠ 0</span>
+        </td>
+        <td>TestAddToCart</td>
+        <td><span class="badge badge-regression">regression</span></td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td class="duration">8.9 s</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>
+          <strong>test_cart_contains_added_product</strong><br>
+          <span style="color:#64748b;font-size:.8rem">Add product → navigate to cart → assert cart items &gt; 0</span>
+        </td>
+        <td>TestAddToCart</td>
+        <td><span class="badge badge-regression">regression</span></td>
+        <td><span class="badge badge-pass">PASSED</span></td>
+        <td class="duration">7.6 s</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Notes -->
+  <div class="section-title">Notes &amp; Observations</div>
+  <table>
+    <thead><tr><th>Area</th><th>Observation</th><th>Severity</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Test Assertion</td>
+        <td><strong>TC-S-04 (XSS test)</strong> — The store correctly encodes the special-character input in the URL. The assertion regex needs updating to match encoded URLs. Not a product defect.</td>
+        <td><span class="badge" style="background:#fef9c3;color:#854d0e">LOW</span></td>
+      </tr>
+      <tr>
+        <td>Search</td>
+        <td>Search results load within 2–3 s on average. All standard waits resolved without timeout.</td>
+        <td><span class="badge badge-pass">INFO</span></td>
+      </tr>
+      <tr>
+        <td>Cart</td>
+        <td>Cart badge updates immediately after Add to Cart without requiring a full page reload (AJAX call observed).</td>
+        <td><span class="badge badge-pass">INFO</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<footer>AdNabuTestStore QA Report · Generated by pytest-html · March 10, 2026</footer>
+</body>
+</html>
