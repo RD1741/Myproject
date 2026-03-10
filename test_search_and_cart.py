@@ -1,20 +1,7 @@
-"""
-Test Suite: AdNabuTestStore — Product Search & Add to Cart
-URL     : https://adnabuteststore.myshopify.com
-Password: AdNabuQA
-
-Task 1 test cases are documented in TEST_CASES.md.
-This file automates the primary happy-path scenario (Task 2).
-"""
 
 import pytest
-from pages.store_page import StorePage
+from store_page import StorePage
 
-
-# ─────────────────────────────────────────────
-# TASK 2 — AUTOMATED SCENARIO
-# Search for a product and add it to the cart successfully
-# ─────────────────────────────────────────────
 
 class TestSearchAndAddToCart:
     """
@@ -22,7 +9,7 @@ class TestSearchAndAddToCart:
     Covers the primary happy-path end-to-end flow.
     """
 
-    SEARCH_TERM = "shirt"   # Generic term likely to return results
+    SEARCH_TERM = "snowboard"
 
     @pytest.mark.smoke
     def test_search_and_add_product_to_cart(self, store: StorePage):
@@ -64,10 +51,6 @@ class TestSearchAndAddToCart:
         )
 
 
-# ─────────────────────────────────────────────
-# ADDITIONAL REGRESSION TESTS (bonus coverage)
-# These mirror Test Cases 1–6 documented in TEST_CASES.md
-# ─────────────────────────────────────────────
 
 class TestProductSearch:
     """Additional search-focused regression tests."""
@@ -75,7 +58,7 @@ class TestProductSearch:
     @pytest.mark.regression
     def test_valid_product_search_returns_results(self, store: StorePage):
         """TC-S-01: Searching a valid keyword returns relevant products."""
-        store.search_for("shirt")
+        store.search_for("snowboard")
         results = store.get_search_results()
         assert len(results) > 0, "No results returned for valid search term."
 
@@ -115,7 +98,7 @@ class TestAddToCart:
     @pytest.mark.regression
     def test_add_to_cart_increments_cart_count(self, store: StorePage):
         """TC-C-01: Adding a product increments the cart badge count."""
-        store.search_for("shirt")
+        store.search_for("snowboard")
         results = store.get_search_results()
         assert len(results) > 0, "Precondition failed: no search results."
 
@@ -130,7 +113,7 @@ class TestAddToCart:
     @pytest.mark.regression
     def test_cart_contains_added_product(self, store: StorePage):
         """TC-C-02: Product added to cart is visible in the cart page."""
-        store.search_for("shirt")
+        store.search_for("snowboard")
         store.get_search_results()
         store.click_first_product()
         product_title = store.get_product_title()

@@ -1,6 +1,6 @@
 """
 Page Object Model for AdNabuTestStore
-URL: https://adnabuteststore.myshopify.com
+URL: https://adnabu-store-assignment1.myshopify.com/
 """
 
 from selenium.webdriver.common.by import By
@@ -12,7 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class StorePage:
     """Handles interactions with the main store pages."""
 
-    BASE_URL = "https://adnabuteststore.myshopify.com"
+    BASE_URL = "https://adnabu-store-assignment1.myshopify.com/"
     PASSWORD = "AdNabuQA"
 
     # Locators
@@ -68,7 +68,7 @@ class StorePage:
         search_box.send_keys(query)
         search_box.send_keys(Keys.RETURN)
 
-    def get_search_results(self) -> list:
+    def get_search_results(self):
         """Return list of product result elements."""
         try:
             self.wait.until(EC.presence_of_all_elements_located(self.SEARCH_RESULTS))
@@ -76,7 +76,7 @@ class StorePage:
         except Exception:
             return []
 
-    def has_no_results_message(self) -> bool:
+    def has_no_results_message(self):
         """Check if a 'no results' message is displayed."""
         try:
             msg = WebDriverWait(self.driver, 5).until(

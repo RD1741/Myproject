@@ -16,12 +16,12 @@
 **Steps:**
 1. Open the store and enter store password.
 2. Click the search icon in the header.
-3. Type `shirt` in the search input.
+3. Type `Snowboard` in the search input.
 4. Press Enter or click the search button.
 
 **Expected Result:**
 - A results page is displayed with one or more product cards.
-- All visible products are relevant to the query (contain "shirt" in title or description).
+- All visible products are relevant to the query (contain "snowboard" in title or description).
 - Product images, names, and prices are visible.
 
 ---
@@ -78,9 +78,9 @@
 **Priority:** Low
 
 **Steps:**
-1. Search for `SHIRT` (all caps).
+1. Search for `SNOWBOARD` (all caps).
 2. Note the number/set of results.
-3. Search again for `shirt` (all lowercase).
+3. Search again for `snowboard` (all lowercase).
 
 **Expected Result:**
 - Both searches return the same (or equivalent) set of product results, confirming case-insensitive handling.
@@ -92,7 +92,7 @@
 **Priority:** Low
 
 **Steps:**
-1. Search for `sh` (partial prefix).
+1. Search for `sn` (partial prefix).
 
 **Expected Result:**
 - Results are returned that match any product whose name/description begins with or contains "sh".
@@ -110,7 +110,7 @@
 
 **Steps:**
 1. Open the store with a fresh (empty) session.
-2. Search for `shirt` and open the first result.
+2. Search for `snowboard` and open the first result.
 3. Click **Add to Cart**.
 
 **Expected Result:**
@@ -186,7 +186,7 @@
 **Priority:** Low
 
 **Steps:**
-1. Search for `shirt`.
+1. Search for `snowboard`.
 2. On the search results page, hover over the first product card.
 3. If a **Quick Add** or **Add to Cart** button appears on the card, click it.
 

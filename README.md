@@ -1,6 +1,6 @@
 # AdNabuTestStore — QA Assignment
 
-Automated test suite for [AdNabuTestStore](https://adnabuteststore.myshopify.com) (Store Password: `AdNabuQA`).
+Automated test suite for [AdNabuTestStore](https://adnabu-store-assignment1.myshopify.com) (Store Password: `AdNabuQA`).
 
 ---
 
@@ -118,7 +118,6 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 All 12 manually written test cases (6 for Product Search, 6 for Add to Cart) are documented in [`TEST_CASES.md`](./TEST_CASES.md).
 
 | Area | Positive | Negative | Edge |
-|------|----------|----------|------|
 | Search | 3 | 2 | 2 |
 | Cart | 4 | 1 | 2 |
 
